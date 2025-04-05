@@ -52,14 +52,21 @@
       "type": "enumeration",
       "enum": [
         "ChatGPT",
-        "Netflix"
+        "Netflix",
+        "Hix"
       ]
     },
-    "orders": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::order.order",
-      "mappedBy": "products"
+    "month": {
+      "type": "integer",
+      "required": true
+    },
+    "targetUrl": {
+      "type": "string",
+      "required": true
+    },
+    "getAccessData": {
+      "type": "json",
+      "required": true
     }
   }
 }

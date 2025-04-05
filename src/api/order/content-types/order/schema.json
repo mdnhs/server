@@ -22,9 +22,8 @@
     },
     "products": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "inversedBy": "orders"
+      "relation": "oneToMany",
+      "target": "api::product.product"
     }
   }
 }
