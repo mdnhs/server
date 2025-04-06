@@ -7,9 +7,9 @@ export default [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "connect-src": ["'self'", 'http:', "https:"],
-          "img-src": ["'self'", "data:", "blob:", "res.cloudinary.com"],
-          "media-src": ["'self'", "data:", "blob:", "res.cloudinary.com"],
+          "connect-src": ["self", "http:", "https:"],
+          "img-src": ["self", "data:", "blob:", "res.cloudinary.com"],
+          "media-src": ["self", "data:", "blob:", "res.cloudinary.com"],
           upgradeInsecureRequests: null,
         },
       },
@@ -18,9 +18,11 @@ export default [
   {
     name: "strapi::cors",
     config: {
-      origin: ["http://localhost:3000"],
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      headers: ["Content-Type", "Authorization"],
+      enabled: true,
+      origin: ["https://subscription-live.vercel.app", "http://localhost:3000"],
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+      headers: ["Content-Type", "Authorization", "Origin", "Accept"],
+      keepHeaderOnError: true,
     },
   },
   "strapi::poweredBy",
