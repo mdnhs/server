@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tools",
+  "info": {
+    "singularName": "tool",
+    "pluralName": "tools",
+    "displayName": "Tool",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "ChatGPT",
+        "Netflix",
+        "Hix"
+      ]
+    },
+    "targetUrl": {
+      "type": "string"
+    },
+    "toolData": {
+      "type": "json"
+    },
+    "month": {
+      "type": "integer"
+    }
+  }
+}

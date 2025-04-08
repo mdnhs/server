@@ -24,6 +24,23 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product"
+    },
+    "category": {
+      "type": "string"
+    },
+    "month": {
+      "type": "integer"
+    },
+    "TxnID": {
+      "type": "string"
+    },
+    "isPaid": {
+      "type": "boolean"
+    },
+    "tools": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tool.tool"
     }
   }
 }

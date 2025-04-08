@@ -67,6 +67,9 @@
     },
     "isAdmin": {
       "type": "boolean"
+    },
+    "banned": {
+      "type": "boolean"
     }
   }
 }
