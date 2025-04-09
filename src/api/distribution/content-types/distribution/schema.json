@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "distributions",
+  "info": {
+    "singularName": "distribution",
+    "pluralName": "distributions",
+    "displayName": "Distribution ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "numberOfUser": {
+      "type": "integer"
+    },
+    "toolName": {
+      "type": "enumeration",
+      "enum": [
+        "ChatGPT",
+        "Netflix",
+        "Hix"
+      ]
+    }
+  }
+}

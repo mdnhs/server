@@ -27,6 +27,9 @@
     },
     "month": {
       "type": "integer"
+    },
+    "totalOrder": {
+      "type": "integer"
     }
   }
 }

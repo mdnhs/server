@@ -426,6 +426,37 @@ export interface ApiCartCart extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDistributionDistribution
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'distributions';
+  info: {
+    description: '';
+    displayName: 'Distribution ';
+    pluralName: 'distributions';
+    singularName: 'distribution';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::distribution.distribution'
+    > &
+      Schema.Attribute.Private;
+    numberOfUser: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    toolName: Schema.Attribute.Enumeration<['ChatGPT', 'Netflix', 'Hix']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -555,6 +586,7 @@ export interface ApiToolTool extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     targetUrl: Schema.Attribute.String;
     toolData: Schema.Attribute.JSON;
+    totalOrder: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1073,6 +1105,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::cart.cart': ApiCartCart;
+      'api::distribution.distribution': ApiDistributionDistribution;
       'api::global.global': ApiGlobalGlobal;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
