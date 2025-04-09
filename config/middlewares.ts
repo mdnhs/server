@@ -19,7 +19,12 @@ export default [
     name: "strapi::cors",
     config: {
       enabled: true,
-      origin: ["https://subscription-live.vercel.app", "http://localhost:3000"],
+      origin: [
+        "https://upeasybd.vercel.app",
+        "https://upeasybd.com/",
+        "https://www.upeasybd.com/",
+        "http://localhost:3000",
+      ],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       headers: ["Content-Type", "Authorization", "Origin", "Accept"],
       keepHeaderOnError: true,
