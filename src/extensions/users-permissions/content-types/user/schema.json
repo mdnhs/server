@@ -70,6 +70,24 @@
     },
     "banned": {
       "type": "boolean"
+    },
+    "bio": {
+      "type": "text"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "religion": {
+      "type": "string"
+    },
+    "profilePicture": {
+      "type": "string"
+    },
+    "birthDate": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
     }
   }
 }
