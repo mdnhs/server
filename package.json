@@ -21,6 +21,7 @@
     "@strapi/provider-upload-cloudinary": "^5.12.3",
     "@strapi/strapi": "5.12.3",
     "better-sqlite3": "11.3.0",
+    "compression": "^1.8.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
     "pg": "^8.14.1",
@@ -36,9 +37,9 @@
     "typescript": "^5"
   },
   "engines": {
-  "node": "^20.17.0",
-  "npm": "^10.0.0"
-},
+    "node": "^20.17.0",
+    "npm": "^10.0.0"
+  },
   "strapi": {
     "uuid": "8c93aad5-10cd-44a4-ba10-664bf17350bb"
   }
