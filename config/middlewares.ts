@@ -20,6 +20,7 @@ export default [
     config: {
       enabled: true,
       origin: [
+        "https://www.upeasybd.com",
         "https://upeasybd.vercel.app",
         "https://upeasybd.com/",
         "https://www.upeasybd.com/",
