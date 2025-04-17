@@ -88,6 +88,15 @@
     },
     "phoneNumber": {
       "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "via": {
+      "type": "string"
+    },
+    "refCredit": {
+      "type": "integer"
     }
   }
 }

@@ -1065,6 +1065,7 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    fullName: Schema.Attribute.String;
     gender: Schema.Attribute.String;
     isAdmin: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1082,6 +1083,7 @@ export interface PluginUsersPermissionsUser
     profilePicture: Schema.Attribute.String;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    refCredit: Schema.Attribute.Integer;
     religion: Schema.Attribute.String;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
     role: Schema.Attribute.Relation<
@@ -1097,6 +1099,7 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
+    via: Schema.Attribute.String;
   };
 }
 
