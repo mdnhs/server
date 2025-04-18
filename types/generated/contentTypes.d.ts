@@ -512,7 +512,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::order.order'> &
       Schema.Attribute.Private;
-    month: Schema.Attribute.Integer;
+    month: Schema.Attribute.Decimal;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     tools: Schema.Attribute.Relation<'oneToMany', 'api::tool.tool'>;
@@ -553,9 +553,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::product.product'
     > &
       Schema.Attribute.Private;
-    month: Schema.Attribute.Integer & Schema.Attribute.Required;
+    month: Schema.Attribute.Decimal & Schema.Attribute.Required;
     price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
+    reviews: Schema.Attribute.JSON;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -583,7 +584,7 @@ export interface ApiToolTool extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tool.tool'> &
       Schema.Attribute.Private;
-    month: Schema.Attribute.Integer;
+    month: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     targetUrl: Schema.Attribute.String;
     toolData: Schema.Attribute.JSON;

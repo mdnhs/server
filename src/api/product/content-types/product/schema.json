@@ -57,8 +57,11 @@
       ]
     },
     "month": {
-      "type": "integer",
+      "type": "decimal",
       "required": true
+    },
+    "reviews": {
+      "type": "json"
     }
   }
 }

@@ -29,7 +29,7 @@
       "type": "string"
     },
     "month": {
-      "type": "integer"
+      "type": "decimal"
     },
     "TxnID": {
       "type": "string"
