@@ -426,6 +426,45 @@ export interface ApiCartCart extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
+  collectionName: 'coupons';
+  info: {
+    displayName: 'coupon';
+    pluralName: 'coupons';
+    singularName: 'coupon';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    code: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    discount: Schema.Attribute.Integer;
+    expireDate: Schema.Attribute.DateTime;
+    isPercentage: Schema.Attribute.Boolean;
+    isValid: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::coupon.coupon'
+    > &
+      Schema.Attribute.Private;
+    maxUsage: Schema.Attribute.Integer;
+    minOrderAmount: Schema.Attribute.Integer;
+    multiUse: Schema.Attribute.Boolean;
+    oneTimePerUser: Schema.Attribute.Boolean;
+    publishedAt: Schema.Attribute.DateTime;
+    startDate: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    usedCount: Schema.Attribute.Integer;
+    userUsage: Schema.Attribute.JSON;
+  };
+}
+
 export interface ApiDistributionDistribution
   extends Struct.CollectionTypeSchema {
   collectionName: 'distributions';
@@ -588,7 +627,7 @@ export interface ApiToolTool extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     targetUrl: Schema.Attribute.String;
     toolData: Schema.Attribute.JSON;
-    totalOrder: Schema.Attribute.Integer;
+    totalOrder: Schema.Attribute.Decimal;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1116,6 +1155,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::cart.cart': ApiCartCart;
+      'api::coupon.coupon': ApiCouponCoupon;
       'api::distribution.distribution': ApiDistributionDistribution;
       'api::global.global': ApiGlobalGlobal;
       'api::order.order': ApiOrderOrder;

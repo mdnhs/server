@@ -29,7 +29,7 @@
       "type": "decimal"
     },
     "totalOrder": {
-      "type": "integer"
+      "type": "decimal"
     }
   }
 }

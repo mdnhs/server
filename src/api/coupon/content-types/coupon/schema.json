@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coupons",
+  "info": {
+    "singularName": "coupon",
+    "pluralName": "coupons",
+    "displayName": "coupon"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "code": {
+      "type": "string"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "isPercentage": {
+      "type": "boolean"
+    },
+    "isValid": {
+      "type": "boolean"
+    },
+    "minOrderAmount": {
+      "type": "integer"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "expireDate": {
+      "type": "datetime"
+    },
+    "maxUsage": {
+      "type": "integer"
+    },
+    "usedCount": {
+      "type": "integer"
+    },
+    "oneTimePerUser": {
+      "type": "boolean"
+    },
+    "multiUse": {
+      "type": "boolean"
+    },
+    "userUsage": {
+      "type": "json"
+    }
+  }
+}
