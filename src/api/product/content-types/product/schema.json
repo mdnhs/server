@@ -62,6 +62,15 @@
     },
     "reviews": {
       "type": "json"
+    },
+    "isOffer": {
+      "type": "boolean"
+    },
+    "offerAmount": {
+      "type": "integer"
+    },
+    "isCreditOffer": {
+      "type": "boolean"
     }
   }
 }

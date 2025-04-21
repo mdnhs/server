@@ -429,7 +429,8 @@ export interface ApiCartCart extends Struct.CollectionTypeSchema {
 export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
   collectionName: 'coupons';
   info: {
-    displayName: 'coupon';
+    description: '';
+    displayName: 'Coupon';
     pluralName: 'coupons';
     singularName: 'coupon';
   };
@@ -586,6 +587,8 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       true
     >;
     instantDelivery: Schema.Attribute.Boolean;
+    isCreditOffer: Schema.Attribute.Boolean;
+    isOffer: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -593,6 +596,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     month: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    offerAmount: Schema.Attribute.Integer;
     price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     reviews: Schema.Attribute.JSON;
