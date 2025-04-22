@@ -620,6 +620,7 @@ export interface ApiToolTool extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    accessData: Schema.Attribute.Text;
     category: Schema.Attribute.Enumeration<['ChatGPT', 'Netflix', 'Hix']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

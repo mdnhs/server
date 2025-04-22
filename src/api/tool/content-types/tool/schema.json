@@ -30,6 +30,9 @@
     },
     "totalOrder": {
       "type": "decimal"
+    },
+    "accessData": {
+      "type": "text"
     }
   }
 }
