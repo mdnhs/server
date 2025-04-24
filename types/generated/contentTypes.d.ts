@@ -625,10 +625,14 @@ export interface ApiToolTool extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    isEmailLogin: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tool.tool'> &
       Schema.Attribute.Private;
     month: Schema.Attribute.Decimal;
+    password: Schema.Attribute.String;
+    pin: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     targetUrl: Schema.Attribute.String;
     toolData: Schema.Attribute.JSON;

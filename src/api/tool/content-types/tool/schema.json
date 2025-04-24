@@ -33,6 +33,18 @@
     },
     "accessData": {
       "type": "text"
+    },
+    "isEmailLogin": {
+      "type": "boolean"
+    },
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "pin": {
+      "type": "string"
     }
   }
 }
