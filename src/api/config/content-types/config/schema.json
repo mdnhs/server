@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "configs",
+  "info": {
+    "singularName": "config",
+    "pluralName": "configs",
+    "displayName": "Config"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "extConfig": {
+      "type": "json"
+    }
+  }
+}

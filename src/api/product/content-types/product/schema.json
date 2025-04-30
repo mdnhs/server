@@ -71,6 +71,9 @@
     },
     "isCreditOffer": {
       "type": "boolean"
+    },
+    "isFree": {
+      "type": "boolean"
     }
   }
 }

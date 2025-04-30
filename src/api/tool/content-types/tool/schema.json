@@ -22,9 +22,6 @@
     "targetUrl": {
       "type": "string"
     },
-    "toolData": {
-      "type": "json"
-    },
     "month": {
       "type": "decimal"
     },

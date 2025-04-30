@@ -398,13 +398,12 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiCartCart extends Struct.CollectionTypeSchema {
-  collectionName: 'carts';
+export interface ApiConfigConfig extends Struct.CollectionTypeSchema {
+  collectionName: 'configs';
   info: {
-    description: '';
-    displayName: 'Cart';
-    pluralName: 'carts';
-    singularName: 'cart';
+    displayName: 'Config';
+    pluralName: 'configs';
+    singularName: 'config';
   };
   options: {
     draftAndPublish: true;
@@ -413,16 +412,17 @@ export interface ApiCartCart extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.Email;
+    extConfig: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::cart.cart'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::config.config'
+    > &
       Schema.Attribute.Private;
-    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    username: Schema.Attribute.String;
   };
 }
 
@@ -588,6 +588,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     >;
     instantDelivery: Schema.Attribute.Boolean;
     isCreditOffer: Schema.Attribute.Boolean;
+    isFree: Schema.Attribute.Boolean;
     isOffer: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -635,7 +636,6 @@ export interface ApiToolTool extends Struct.CollectionTypeSchema {
     pin: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     targetUrl: Schema.Attribute.String;
-    toolData: Schema.Attribute.JSON;
     totalOrder: Schema.Attribute.Decimal;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1163,7 +1163,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
-      'api::cart.cart': ApiCartCart;
+      'api::config.config': ApiConfigConfig;
       'api::coupon.coupon': ApiCouponCoupon;
       'api::distribution.distribution': ApiDistributionDistribution;
       'api::global.global': ApiGlobalGlobal;
