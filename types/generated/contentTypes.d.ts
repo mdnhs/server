@@ -490,7 +490,45 @@ export interface ApiDistributionDistribution
       Schema.Attribute.Private;
     numberOfUser: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    toolName: Schema.Attribute.Enumeration<['ChatGPT', 'Netflix', 'Hix']>;
+    toolName: Schema.Attribute.Enumeration<
+      [
+        'ChatGPT Web',
+        'ChatGPT Mobile',
+        'Netflix Web',
+        'Netflix Mobile',
+        'Hix Web',
+        'Hix Mobile',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiExtensionExtension extends Struct.CollectionTypeSchema {
+  collectionName: 'extensions';
+  info: {
+    description: '';
+    displayName: 'Extension';
+    pluralName: 'extensions';
+    singularName: 'extension';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    downloadUrl: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::extension.extension'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -577,7 +615,16 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
   attributes: {
     banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    category: Schema.Attribute.Enumeration<['ChatGPT', 'Netflix', 'Hix']>;
+    category: Schema.Attribute.Enumeration<
+      [
+        'ChatGPT Web',
+        'ChatGPT Mobile',
+        'Netflix Web',
+        'Netflix Mobile',
+        'Hix Web',
+        'Hix Mobile',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -589,6 +636,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     instantDelivery: Schema.Attribute.Boolean;
     isCreditOffer: Schema.Attribute.Boolean;
     isFree: Schema.Attribute.Boolean;
+    isMobile: Schema.Attribute.Boolean;
     isOffer: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -609,6 +657,34 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiRequestRequest extends Struct.CollectionTypeSchema {
+  collectionName: 'requests';
+  info: {
+    displayName: 'Request';
+    pluralName: 'requests';
+    singularName: 'request';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::request.request'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    toolsName: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiToolTool extends Struct.CollectionTypeSchema {
   collectionName: 'tools';
   info: {
@@ -622,18 +698,29 @@ export interface ApiToolTool extends Struct.CollectionTypeSchema {
   };
   attributes: {
     accessData: Schema.Attribute.Text;
-    category: Schema.Attribute.Enumeration<['ChatGPT', 'Netflix', 'Hix']>;
+    category: Schema.Attribute.Enumeration<
+      [
+        'ChatGPT Web',
+        'ChatGPT Mobile',
+        'Netflix Web',
+        'Netflix Mobile',
+        'Hix Web',
+        'Hix Mobile',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     email: Schema.Attribute.String;
     isEmailLogin: Schema.Attribute.Boolean;
+    isMobile: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tool.tool'> &
       Schema.Attribute.Private;
     month: Schema.Attribute.Decimal;
     password: Schema.Attribute.String;
     pin: Schema.Attribute.String;
+    profile: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     targetUrl: Schema.Attribute.String;
     totalOrder: Schema.Attribute.Decimal;
@@ -1166,9 +1253,11 @@ declare module '@strapi/strapi' {
       'api::config.config': ApiConfigConfig;
       'api::coupon.coupon': ApiCouponCoupon;
       'api::distribution.distribution': ApiDistributionDistribution;
+      'api::extension.extension': ApiExtensionExtension;
       'api::global.global': ApiGlobalGlobal;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
+      'api::request.request': ApiRequestRequest;
       'api::tool.tool': ApiToolTool;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

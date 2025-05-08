@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "extensions",
+  "info": {
+    "singularName": "extension",
+    "pluralName": "extensions",
+    "displayName": "Extension",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "downloadUrl": {
+      "type": "string"
+    }
+  }
+}

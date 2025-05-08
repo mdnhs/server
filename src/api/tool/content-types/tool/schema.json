@@ -14,9 +14,12 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "ChatGPT",
-        "Netflix",
-        "Hix"
+        "ChatGPT Web",
+        "ChatGPT Mobile",
+        "Netflix Web",
+        "Netflix Mobile",
+        "Hix Web",
+        "Hix Mobile"
       ]
     },
     "targetUrl": {
@@ -41,6 +44,12 @@
       "type": "string"
     },
     "pin": {
+      "type": "string"
+    },
+    "isMobile": {
+      "type": "boolean"
+    },
+    "profile": {
       "type": "string"
     }
   }

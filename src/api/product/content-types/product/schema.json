@@ -51,9 +51,12 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "ChatGPT",
-        "Netflix",
-        "Hix"
+        "ChatGPT Web",
+        "ChatGPT Mobile",
+        "Netflix Web",
+        "Netflix Mobile",
+        "Hix Web",
+        "Hix Mobile"
       ]
     },
     "month": {
@@ -73,6 +76,9 @@
       "type": "boolean"
     },
     "isFree": {
+      "type": "boolean"
+    },
+    "isMobile": {
       "type": "boolean"
     }
   }
